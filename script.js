@@ -163,3 +163,24 @@ document.getElementById('menuBtn').addEventListener('click', () => { updateStats
 document.getElementById('backMenuBtn').addEventListener('click', () => { updateStats(); showScreen('screen-menu'); });
 
 updateStats();
+
+document.getElementById('navHomeBtn').addEventListener('click', () => {
+  setActiveNav('navHomeBtn');
+  updateStats();
+  showScreen('screen-menu');
+});
+
+document.getElementById('navRuleBtn').addEventListener('click', () => {
+  setActiveNav('navRuleBtn');
+  startGame();
+});
+
+document.getElementById('navAboutBtn').addEventListener('click', () => {
+  alert("PIXEL PERFECT HUNT\nLook at each photo and judge if it's perfect or modified!");
+});
+
+
+function setActiveNav(buttonId) {
+  document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById(buttonId).classList.add('active');
+}
