@@ -165,7 +165,6 @@ document.getElementById('backMenuBtn').addEventListener('click', () => { updateS
 updateStats();
 
 
-
 document.getElementById('navHomeBtn').addEventListener('click', () => {
   setActiveNav('navHomeBtn');
   updateStats();
