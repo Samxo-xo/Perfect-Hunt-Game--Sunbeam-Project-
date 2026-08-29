@@ -132,3 +132,63 @@ html, body {
 
 .results-title { font-size: 20px; color: var(--purple); text-shadow: 2px 2px 0 var(--pink-deep); margin-bottom: 18px; }
 .results-score { font-family: 'Press Start 2P', monospace; font-size: 30px; color: var(--ink); margin: 10px 0; }
+
+
+.pixel-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--cream);
+  border: 4px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--shadow);
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 760px;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-brand {
+  font-size: 11px;
+  color: var(--pink-deep);
+  text-shadow: 2px 2px 0 var(--purple);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  padding: 6px 10px;
+  color: var(--ink);
+  background: var(--pink-light);
+  border: 2px solid var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.05s ease;
+}
+
+.nav-btn:hover {
+  background: var(--pink-deep);
+  color: #fff;
+}
+
+.nav-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.nav-btn.active {
+  background: var(--teal);
+}
+
+@media (max-width: 520px) {
+  .pixel-navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
