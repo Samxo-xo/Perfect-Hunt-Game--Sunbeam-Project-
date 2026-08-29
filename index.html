@@ -1,87 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pixel Perfect Hunt </title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Perfect Hunt</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="decorations"></div>
 
-<div id="app">
+  <div id="decorations"></div>
 
-  <section id="screen-menu" class="screen active">
-    <div class="panel  menu-panel">
-      <h1 class="game-title pixel-font">PIXEL<br>PERFECT<br>HUNT</h1>
-      <p class="tagline">is it a perfect day... or not? </p>
+  <div id="app">
 
-      <div class="stats-row">
-        <div class="stat-chip ">BEST SCORE<b id="menuBestScore">0</b></div>
-        <div class="stat-chip ">BEST STREAK<b id="menuBestStreak">0</b></div>
+    <section id="screen-menu" class="screen active">
+      <div class="panel menu-panel">
+        <h1 class="game-title pixel-font">PIXEL<br>PERFECT<br>HUNT!</h1>
+        <p class="tagline">Is it perfect ... or not?</p>
+
+        <div class="stats-row">
+          <div class="stat-chip">BEST SCORE<b id="menuBestScore">0</b></div>
+          <div class="stat-chip">BEST STREAK<b id="menuBestStreak">0</b></div>
+        </div>
+
+        <button class="pixel-btn primary" id="startBtn">▶ START GAME</button>
+        <p class="howto">Look at each photo and decide: is it <b>perfect</b>, or does something seem off?</p>
+      </div>
+    </section>
+
+    <section id="screen-game" class="screen">
+      <div class="hud">
+        <div class="hud-left">
+          <div class="hud-chip" id="levelChip">PHOTO 1/3</div>
+        </div>
+        <div class="hud-right">
+          <div class="hud-chip" id="scoreChip">SCORE 0</div>
+          <div class="hud-chip streak" id="streakChip">🔥 0</div>
+        </div>
       </div>
 
-      <button class="pixel-btn primary " id="startBtn">▶ START GAME</button>
+      <h2 class="scene-title pixel-font">IS THIS A PERFECT DAY?</h2>
 
-      <p class="howto">Look at each photo and decide: is it a <b>perfect day</b>, or does something seem off? Get it right to move on — get it wrong and just try again, no pressure! 💗</p>
-    </div>
-  </section>
-
-  <section id="screen-game" class="screen">
-    <div class="hud">
-      <div class="hud-left">
-        <div class="hud-chip " id="levelChip">PHOTO 1/8</div>
-      </div>
-      <div class="hud-right">
-        <div class="hud-chip " id="scoreChip">SCORE 0</div>
-        <div class="hud-chip streak " id="streakChip">🔥 0</div>
-      </div>
-    </div>
-
-    <h2 class="scene-title pixel-font" id="sceneTitle">IS THIS A PERFECT DAY?</h2>
-
-    <div class="canvas-wrap " id="canvasWrap">
-      <img id="photoImg" src="" alt="scene photo">
-      <div class="feedback-msg pixel-font" id="feedbackMsg"></div>
-    </div>
-
-    <div class="judge-row" id="judgeRow">
-      <button class="pixel-btn teal judge-btn" id="perfectBtn"> PERFECT DAY</button>
-      <button class="pixel-btn primary  judge-btn" id="notPerfectBtn"> SOMETHING'S OFF</button>
-    </div>
-
-    <div class="below-canvas">
-      <div class="hint-box" id="hintBox"></div>
-      <div style="display:flex; gap:10px;">
-        <button class="pixel-btn small ghost " id="hintBtn"> HINT</button>
-        <button class="pixel-btn small ghost " id="menuBtn"> MENU</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== RESULTS SCREEN ===================== -->
-  <section id="screen-results" class="screen">
-    <div class="panel results-panel">
-      <h2 class="results-title pixel-font">ROUND COMPLETE!</h2>
-      <p class="pixel-font" style="font-size:11px; color:var(--ink-soft);">YOUR SCORE</p>
-      <div class="results-score" id="finalScore">0</div>
-
-      <div class="results-row">
-        <div class="stat-chip ">BEST STREAK<b id="finalStreak">0</b></div>
-        <div class="stat-chip ">BEST SCORE<b id="finalBest">0</b></div>
+      <div class="canvas-wrap" id="canvasWrap">
+        <img id="photoImg" src="" alt="scene photo">
+        <div class="feedback-msg pixel-font" id="feedbackMsg"></div>
       </div>
 
-      <div class="btn-row">
-        <button class="pixel-btn primary " id="replayBtn">↻ PLAY AGAIN</button>
-        <button class="pixel-btn ghost " id="backMenuBtn"> MENU</button>
+      <div class="judge-row">
+        <button class="pixel-btn teal judge-btn" id="perfectBtn">PERFECT DAY</button>
+        <button class="pixel-btn primary judge-btn" id="notPerfectBtn">SOMETHING'S OFF</button>
       </div>
-    </div>
-  </section>
 
-</div>
-<script src="script.js"></script>
+      <div class="below-canvas">
+        <div class="hint-box" id="hintBox"></div>
+        <div style="display:flex; gap:10px;">
+          <button class="pixel-btn small ghost" id="hintBtn">HINT</button>
+          <button class="pixel-btn small ghost" id="menuBtn">MENU</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-results" class="screen">
+      <div class="panel results-panel">
+        <h2 class="results-title pixel-font">ROUND COMPLETE!</h2>
+        <p class="pixel-font" style="font-size:11px; color:var(--ink-soft);">YOUR SCORE</p>
+        <div class="results-score" id="finalScore">0</div>
+
+        <div class="results-row">
+          <div class="stat-chip">BEST STREAK<b id="finalStreak">0</b></div>
+          <div class="stat-chip">BEST SCORE<b id="finalBest">0</b></div>
+        </div>
+
+        <div class="btn-row">
+          <button class="pixel-btn primary" id="replayBtn">↻ PLAY AGAIN</button>
+          <button class="pixel-btn ghost" id="backMenuBtn">MENU</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
