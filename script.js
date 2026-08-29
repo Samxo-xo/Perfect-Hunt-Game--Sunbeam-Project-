@@ -4,17 +4,17 @@ const LEVELS = [
   {
     photoUrl: "https://static.boredpanda.com/blog/wp-content/uploads/2025/06/chilling-ghost-encounters-15-6842f255d2478__700.jpg",
     isPerfect: false,
-    hint: ""
+    hint: "Look at the kids"
   },
   {
     photoUrl: "https://static.boredpanda.com/blog/wp-content/uploads/2025/05/68370e7bd8431_frqmzdln19k61__700.jpg",
     isPerfect: false,
-    hint: ""
+    hint: "what is there in the background"
   },
   {
     photoUrl: "https://img.magnific.com/premium-photo/happy-portrait-grandparents-with-girl-nature-family-relax-support-embrace-bonading-summer-with-old-man-woman-smile-with-grandchild-affection-hug-youth-countryside_590464-107021.jpg?semt=ais_hybrid&w=740&q=80",
     isPerfect: true,
-    hint: ""
+    hint: "Wow! A happy family?"
   }
    
 ];
@@ -164,22 +164,88 @@ document.getElementById('backMenuBtn').addEventListener('click', () => { updateS
 
 updateStats();
 
+
+
 document.getElementById('navHomeBtn').addEventListener('click', () => {
   setActiveNav('navHomeBtn');
   updateStats();
   showScreen('screen-menu');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 document.getElementById('navRuleBtn').addEventListener('click', () => {
-  setActiveNav('navRuleBtn');
-  startGame();
+  const rulesSection = document.getElementById('section-rules');
+  if (!rulesSection) return;
+
+  const isHidden = rulesSection.classList.contains('hidden');
+
+  if (isHidden) {
+    rulesSection.classList.remove('hidden');
+    setActiveNav('navRuleBtn');
+    rulesSection.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    rulesSection.classList.add('hidden');
+    setActiveNav('navHomeBtn');
+  }
 });
 
 document.getElementById('navAboutBtn').addEventListener('click', () => {
-  alert("PIXEL PERFECT HUNT\nLook at each photo and judge if it's perfect or modified!");
+  setActiveNav('navAboutBtn');
+  const aboutSection = document.getElementById('section-about');
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+document.querySelectorAll('.scroll-top-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setActiveNav('navHomeBtn');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+function setActiveNav(buttonId) {
+  document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+  const btn = document.getElementById(buttonId);
+  if (btn) btn.classList.add('active');
+}
+
+
+function setActiveNav(buttonId) {
+  document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+  document.getElementById(buttonId).classList.add('active');
+}
+
+document.getElementById('navHomeBtn').addEventListener('click', () => {
+  setActiveNav('navHomeBtn');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 
+document.getElementById('navRuleBtn').addEventListener('click', () => {
+  const rulesSection = document.getElementById('section-rules');
+  const isHidden = rulesSection.classList.contains('hidden');
+
+  if (isHidden) {
+    rulesSection.classList.remove('hidden');
+    setActiveNav('navRuleBtn');
+    rulesSection.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    rulesSection.classList.add('hidden');
+    setActiveNav('navHomeBtn');
+  }
+});
+
+document.getElementById('navAboutBtn').addEventListener('click', () => {
+  setActiveNav('navAboutBtn');
+  document.getElementById('section-about').scrollIntoView({ behavior: 'smooth' });
+});
+document.querySelectorAll('.scroll-top-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setActiveNav('navHomeBtn');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
 function setActiveNav(buttonId) {
   document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
   document.getElementById(buttonId).classList.add('active');
